@@ -8,18 +8,29 @@
     <title>Document</title>
 </head>
 <body>
+    
     <div id="app">
-        Hola {{nombre}}
-        <a :href="url" target="_blank">Ir a {{Pagina}}</a>
+        
+        <h1>{{titulo | uppcase}}</h1>
+        <h2>{{subtitlo | lowercase}}</h2>    
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script type="text/javascript">
     let app = new Vue({
         el: '#app',
         data:{
-            nombre : 'Andres',
-            url: "https://google.com",
-            Pagina: 'google'
+            
+            titulo: 'Estas viendo page',
+            subtitlo: 'Practicando VueJS'
+        },
+        filters:{
+            uppcase:function(str){
+                return str.toUpperCase();
+            },
+            lowercase:function(str){
+                return str.toLowerCase();
+            }
+
         }
     })
     </script>
