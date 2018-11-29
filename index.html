@@ -10,9 +10,9 @@
 <body>
     
     <div id="app">
-        
-        <h1>{{titulo | uppcase}}</h1>
-        <h2>{{subtitlo | lowercase}}</h2>    
+        <button @click="sumar++">Sumar 1</button> 
+        <button v-on:click="restar--">Restar 1</button>
+        El contador es: {{contador}} 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script type="text/javascript">
@@ -20,18 +20,17 @@
         el: '#app',
         data:{
             
-            titulo: 'Estas viendo page',
-            subtitlo: 'Practicando VueJS'
-        },
-        filters:{
-            uppcase:function(str){
-                return str.toUpperCase();
-            },
-            lowercase:function(str){
-                return str.toLowerCase();
-            }
-
-        }
+            contador: 0
+        }//,
+        //methods:{ //metodos add push
+            //sumar: function(){
+              //  this.contador++ // this.contador = this.contador +1
+         //   },
+         //   restar: function(){
+        //        this.contador--
+        //    }
+       // }  sin usar metodos
+        
     })
     </script>
 </body>
