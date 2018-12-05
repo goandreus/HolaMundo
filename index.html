@@ -8,11 +8,22 @@
     <title>Document</title>
 </head>
 <body>
-    
+     
     <div id="app">
-        <button @click="sumar++">Sumar 1</button> 
-        <button v-on:click="restar--">Restar 1</button>
-        El contador es: {{contador}} 
+        <input type="text" name="nombre" placeholder="Ingresa tu nombre" v-model="nombre">
+        <p>Tu nombre en mayuscula es : {{nombre | uppercase}} </p> 
+
+        <form @submit.prevent="submit" action="" method="get">
+            <h2>Cuales son tus cursos favoritos?</h2>
+            <input v-model="cursos" type="checkbox" id="vue" value="vue">
+            <label for="vue">Curso de vue.js</label>
+            <input v-model="cursos" type="checkbox" id="seo" value="seo">
+            <label for="seo">Curso de SEO </label>
+            <input v-model="cursos" type="checkbox" id="react" value="react">
+            <label for="react">Curso de react</label>
+            <button type="submit">Enviar</button>
+                
+        </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script type="text/javascript">
@@ -20,8 +31,23 @@
         el: '#app',
         data:{
             
-            contador: 0
-        }//,
+            nombre:'',
+            cursos: []
+        },
+        filters:{
+            uppercase:function(str){
+                return str.toUppercase
+            }
+        },
+        methods:{
+            submit: function(){
+                console.log('Se ejecuta el submit')
+                console.log(this.cursos)
+            }
+        }
+        
+        
+        //,
         //methods:{ //metodos add push
             //sumar: function(){
               //  this.contador++ // this.contador = this.contador +1
